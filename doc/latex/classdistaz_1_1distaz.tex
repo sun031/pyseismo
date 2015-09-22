@@ -1,0 +1,217 @@
+\hypertarget{classdistaz_1_1distaz}{}\section{distaz.\+distaz Class Reference}
+\label{classdistaz_1_1distaz}\index{distaz.\+distaz@{distaz.\+distaz}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classdistaz_1_1distaz_a3231d7c0c826a7ef6a55a8a29ac12754}{}def {\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self, lat1, lon1, lat2, lon2)\label{classdistaz_1_1distaz_a3231d7c0c826a7ef6a55a8a29ac12754}
+
+\item 
+def \hyperlink{classdistaz_1_1distaz_aaf19992df4c732632dab22da80b965f4}{get\+Delta} (self)
+\item 
+\hypertarget{classdistaz_1_1distaz_ad92d84e3ee3b87da25f9bec3bd6b92c8}{}def {\bfseries get\+Az} (self)\label{classdistaz_1_1distaz_ad92d84e3ee3b87da25f9bec3bd6b92c8}
+
+\item 
+\hypertarget{classdistaz_1_1distaz_a4843fc9f9977b886267436912ecf9f3c}{}def {\bfseries get\+Baz} (self)\label{classdistaz_1_1distaz_a4843fc9f9977b886267436912ecf9f3c}
+
+\item 
+\hypertarget{classdistaz_1_1distaz_af322cca275b999e4ed565e0ff0e82e8d}{}def {\bfseries degrees\+To\+Kilometers} (self, degrees)\label{classdistaz_1_1distaz_af322cca275b999e4ed565e0ff0e82e8d}
+
+\item 
+\hypertarget{classdistaz_1_1distaz_a59bf5d4ec6d59fc766fea31a11d7ec56}{}def {\bfseries kilometers\+To\+Degrees} (self, kilometers)\label{classdistaz_1_1distaz_a59bf5d4ec6d59fc766fea31a11d7ec56}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classdistaz_1_1distaz_ae75c2ff534e098418237addb7d243b15}{rad} = 2
+\item 
+float \hyperlink{classdistaz_1_1distaz_abe7e7f55263b7cfdd1658bad101a5ae3}{sph} = 1.\+0
+\item 
+\hypertarget{classdistaz_1_1distaz_a5b0dc828a5f6c001965a6ccf1b401a85}{}float {\bfseries scolat} = math.\+pi/2.\+0\label{classdistaz_1_1distaz_a5b0dc828a5f6c001965a6ccf1b401a85}
+
+\item 
+\hypertarget{classdistaz_1_1distaz_a0aa8e03fe03c8e824ceaa07427f63c37}{}float {\bfseries ecolat} = math.\+pi/2.\+0\label{classdistaz_1_1distaz_a0aa8e03fe03c8e824ceaa07427f63c37}
+
+\item 
+\hypertarget{classdistaz_1_1distaz_ac64490728eabb4c132dd2aab055ab2e1}{}{\bfseries slon} = lon1$\ast$\hyperlink{classdistaz_1_1distaz_ae75c2ff534e098418237addb7d243b15}{rad}\label{classdistaz_1_1distaz_ac64490728eabb4c132dd2aab055ab2e1}
+
+\item 
+\hypertarget{classdistaz_1_1distaz_a0444a4dea5413c6f8e3e03d59984ed5e}{}{\bfseries elon} = lon2$\ast$\hyperlink{classdistaz_1_1distaz_ae75c2ff534e098418237addb7d243b15}{rad}\label{classdistaz_1_1distaz_a0444a4dea5413c6f8e3e03d59984ed5e}
+
+\item 
+tuple \hyperlink{classdistaz_1_1distaz_adb0db47f4fc7ad23fe6b38ef41ede80d}{a} = math.\+sin(scolat)
+\item 
+\hypertarget{classdistaz_1_1distaz_ae6d7025ff0ea58d2054fd44941004866}{}tuple {\bfseries b} = math.\+sin(scolat)\label{classdistaz_1_1distaz_ae6d7025ff0ea58d2054fd44941004866}
+
+\item 
+\hypertarget{classdistaz_1_1distaz_a0f87137b0d34c8d6a8e7b95bf75b9aac}{}tuple {\bfseries c} = math.\+cos(scolat)\label{classdistaz_1_1distaz_a0f87137b0d34c8d6a8e7b95bf75b9aac}
+
+\item 
+\hypertarget{classdistaz_1_1distaz_a5e5dff502aa641274417f400d29aa5f9}{}tuple {\bfseries d} = math.\+sin(slon)\label{classdistaz_1_1distaz_a5e5dff502aa641274417f400d29aa5f9}
+
+\item 
+\hypertarget{classdistaz_1_1distaz_a316908939ce8ed124fdd8f31ebe13b96}{}tuple {\bfseries e} = -\/math.\+cos(slon)\label{classdistaz_1_1distaz_a316908939ce8ed124fdd8f31ebe13b96}
+
+\item 
+\hypertarget{classdistaz_1_1distaz_ad47b58dbf972c307c82da52dbbb5d96f}{}{\bfseries g} = -\/c$\ast$e\label{classdistaz_1_1distaz_ad47b58dbf972c307c82da52dbbb5d96f}
+
+\item 
+\hypertarget{classdistaz_1_1distaz_a894af61a60d41012e7ccadd3b175fa37}{}{\bfseries h} = c$\ast$d\label{classdistaz_1_1distaz_a894af61a60d41012e7ccadd3b175fa37}
+
+\item 
+\hypertarget{classdistaz_1_1distaz_a9de63deceb548368df21991fe99db418}{}tuple {\bfseries k} = -\/math.\+sin(scolat)\label{classdistaz_1_1distaz_a9de63deceb548368df21991fe99db418}
+
+\item 
+tuple \hyperlink{classdistaz_1_1distaz_ab2242c591dc865b7ea4a11881877de95}{aa} = math.\+sin(ecolat)
+\item 
+\hypertarget{classdistaz_1_1distaz_a8e7d25d74bbb6555350bee1c9e2ccee0}{}tuple {\bfseries bb} = math.\+sin(ecolat)\label{classdistaz_1_1distaz_a8e7d25d74bbb6555350bee1c9e2ccee0}
+
+\item 
+\hypertarget{classdistaz_1_1distaz_af3d37618003d7681cf2e91c8acbe9a9d}{}tuple {\bfseries cc} = math.\+cos(ecolat)\label{classdistaz_1_1distaz_af3d37618003d7681cf2e91c8acbe9a9d}
+
+\item 
+\hypertarget{classdistaz_1_1distaz_a5195ebfe960f0f058f4fedd795c09877}{}tuple {\bfseries dd} = math.\+sin(elon)\label{classdistaz_1_1distaz_a5195ebfe960f0f058f4fedd795c09877}
+
+\item 
+\hypertarget{classdistaz_1_1distaz_ab2a8a3dfe5e5b28d1a0beb3216ea1232}{}tuple {\bfseries ee} = -\/math.\+cos(elon)\label{classdistaz_1_1distaz_ab2a8a3dfe5e5b28d1a0beb3216ea1232}
+
+\item 
+\hypertarget{classdistaz_1_1distaz_a5298f6ce10c78d3f55fd5b7a90f014f2}{}{\bfseries gg} = -\/cc$\ast$ee\label{classdistaz_1_1distaz_a5298f6ce10c78d3f55fd5b7a90f014f2}
+
+\item 
+\hypertarget{classdistaz_1_1distaz_aa5720077ca353cc3c75c6d0225a02345}{}{\bfseries hh} = cc$\ast$dd\label{classdistaz_1_1distaz_aa5720077ca353cc3c75c6d0225a02345}
+
+\item 
+\hypertarget{classdistaz_1_1distaz_a97aaaa9169f6ab99d31932a785a734cf}{}tuple {\bfseries kk} = -\/math.\+sin(ecolat)\label{classdistaz_1_1distaz_a97aaaa9169f6ab99d31932a785a734cf}
+
+\item 
+tuple \hyperlink{classdistaz_1_1distaz_a0cfb3cd9491e2c479e6c52516a2fee82}{delrad} = math.\+acos(\hyperlink{classdistaz_1_1distaz_adb0db47f4fc7ad23fe6b38ef41ede80d}{a}$\ast$\hyperlink{classdistaz_1_1distaz_ab2242c591dc865b7ea4a11881877de95}{aa} + b$\ast$bb + c$\ast$cc)
+\item 
+tuple \hyperlink{classdistaz_1_1distaz_a2a9ed83eb1131cefa14085e0b84e6486}{rhs1} = (\hyperlink{classdistaz_1_1distaz_ab2242c591dc865b7ea4a11881877de95}{aa}-\/d)
+\item 
+\hypertarget{classdistaz_1_1distaz_acf29f222cab3ccc3fe40fb3f5e392736}{}tuple {\bfseries rhs2} = (\hyperlink{classdistaz_1_1distaz_ab2242c591dc865b7ea4a11881877de95}{aa}-\/g)\label{classdistaz_1_1distaz_acf29f222cab3ccc3fe40fb3f5e392736}
+
+\item 
+\hypertarget{classdistaz_1_1distaz_a6b66841d9b9a0077e9fabf91ad03c539}{}tuple {\bfseries dbaz} = math.\+atan2(\hyperlink{classdistaz_1_1distaz_a2a9ed83eb1131cefa14085e0b84e6486}{rhs1},rhs2)\label{classdistaz_1_1distaz_a6b66841d9b9a0077e9fabf91ad03c539}
+
+\item 
+\hypertarget{classdistaz_1_1distaz_a728c19a030c4f8c7f6ff7b513c40ee2b}{}int {\bfseries dbaz} = dbaz+2\label{classdistaz_1_1distaz_a728c19a030c4f8c7f6ff7b513c40ee2b}
+
+\item 
+\hypertarget{classdistaz_1_1distaz_a0ca07cc7fa399fdffbb5f8d10896f4e5}{}tuple {\bfseries daz} = math.\+atan2(\hyperlink{classdistaz_1_1distaz_a2a9ed83eb1131cefa14085e0b84e6486}{rhs1},rhs2)\label{classdistaz_1_1distaz_a0ca07cc7fa399fdffbb5f8d10896f4e5}
+
+\item 
+\hypertarget{classdistaz_1_1distaz_a20f6da96914f517102c16ecd71f9e374}{}int {\bfseries daz} = daz+2\label{classdistaz_1_1distaz_a20f6da96914f517102c16ecd71f9e374}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}c
+c Subroutine to calculate the Great Circle Arc distance
+c    between two sets of geographic coordinates
+c
+c Equations take from Bullen, pages 154, 155
+c
+c T. Owens, September 19, 1991
+c           Sept. 25 -- fixed az and baz calculations
+c
+P. Crotwell, Setember 27, 1995
+Converted to c to fix annoying problem of fortran giving wrong
+answers if the input doesn't contain a decimal point.
+
+H. P. Crotwell, September 18, 1997
+Java version for direct use in java programs.
+*
+* C. Groves, May 4, 2004
+* Added enough convenience constructors to choke a horse and made public double
+* values use accessors so we can use this class as an immutable
+
+H.P. Crotwell, May 31, 2006
+Port to python, thus adding to the great list of languages to which
+distaz has been ported from the origin fortran: C, Tcl, Java and now python
+and I vaguely remember a perl port. Long live distaz! 
+\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\hypertarget{classdistaz_1_1distaz_aaf19992df4c732632dab22da80b965f4}{}\index{distaz\+::distaz@{distaz\+::distaz}!get\+Delta@{get\+Delta}}
+\index{get\+Delta@{get\+Delta}!distaz\+::distaz@{distaz\+::distaz}}
+\subsubsection[{get\+Delta(self)}]{\setlength{\rightskip}{0pt plus 5cm}def distaz.\+distaz.\+get\+Delta (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classdistaz_1_1distaz_aaf19992df4c732632dab22da80b965f4}
+\begin{DoxyVerb}    c
+    c   Make sure 0.0 is always 0.0, not 360.
+    c\end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\hypertarget{classdistaz_1_1distaz_adb0db47f4fc7ad23fe6b38ef41ede80d}{}\index{distaz\+::distaz@{distaz\+::distaz}!a@{a}}
+\index{a@{a}!distaz\+::distaz@{distaz\+::distaz}}
+\subsubsection[{a}]{\setlength{\rightskip}{0pt plus 5cm}tuple distaz.\+distaz.\+a = math.\+sin(scolat)\hspace{0.3cm}{\ttfamily [static]}}\label{classdistaz_1_1distaz_adb0db47f4fc7ad23fe6b38ef41ede80d}
+\begin{DoxyVerb}    c
+    c  a - e are as defined by Bullen (pg. 154, Sec 10.2)
+    c     These are defined for the pt. 1
+    c
+\end{DoxyVerb}
+ \hypertarget{classdistaz_1_1distaz_ab2242c591dc865b7ea4a11881877de95}{}\index{distaz\+::distaz@{distaz\+::distaz}!aa@{aa}}
+\index{aa@{aa}!distaz\+::distaz@{distaz\+::distaz}}
+\subsubsection[{aa}]{\setlength{\rightskip}{0pt plus 5cm}tuple distaz.\+distaz.\+aa = math.\+sin(ecolat)\hspace{0.3cm}{\ttfamily [static]}}\label{classdistaz_1_1distaz_ab2242c591dc865b7ea4a11881877de95}
+\begin{DoxyVerb}    c
+    c  aa - ee are the same as a - e, except for pt. 2
+    c
+\end{DoxyVerb}
+ \hypertarget{classdistaz_1_1distaz_a0cfb3cd9491e2c479e6c52516a2fee82}{}\index{distaz\+::distaz@{distaz\+::distaz}!delrad@{delrad}}
+\index{delrad@{delrad}!distaz\+::distaz@{distaz\+::distaz}}
+\subsubsection[{delrad}]{\setlength{\rightskip}{0pt plus 5cm}tuple distaz.\+distaz.\+delrad = math.\+acos({\bf a}$\ast${\bf aa} + b$\ast$bb + c$\ast$cc)\hspace{0.3cm}{\ttfamily [static]}}\label{classdistaz_1_1distaz_a0cfb3cd9491e2c479e6c52516a2fee82}
+\begin{DoxyVerb}    c
+    c  Bullen, Sec 10.2, eqn. 4
+    c
+\end{DoxyVerb}
+ \hypertarget{classdistaz_1_1distaz_ae75c2ff534e098418237addb7d243b15}{}\index{distaz\+::distaz@{distaz\+::distaz}!rad@{rad}}
+\index{rad@{rad}!distaz\+::distaz@{distaz\+::distaz}}
+\subsubsection[{rad}]{\setlength{\rightskip}{0pt plus 5cm}int distaz.\+distaz.\+rad = 2\hspace{0.3cm}{\ttfamily [static]}}\label{classdistaz_1_1distaz_ae75c2ff534e098418237addb7d243b15}
+\begin{DoxyVerb}c lat1 => Latitude of first point (+N, -S) in degrees
+c lon1 => Longitude of first point (+E, -W) in degrees
+c lat2 => Latitude of second point
+c lon2 => Longitude of second point
+c
+c getDelta() => Great Circle Arc distance in degrees
+c getAz()    => Azimuth from pt. 1 to pt. 2 in degrees
+c getBaz()   => Back Azimuth from pt. 2 to pt. 1 in degrees
+\end{DoxyVerb}
+ \hypertarget{classdistaz_1_1distaz_a2a9ed83eb1131cefa14085e0b84e6486}{}\index{distaz\+::distaz@{distaz\+::distaz}!rhs1@{rhs1}}
+\index{rhs1@{rhs1}!distaz\+::distaz@{distaz\+::distaz}}
+\subsubsection[{rhs1}]{\setlength{\rightskip}{0pt plus 5cm}tuple distaz.\+distaz.\+rhs1 = ({\bf aa}-\/d)\hspace{0.3cm}{\ttfamily [static]}}\label{classdistaz_1_1distaz_a2a9ed83eb1131cefa14085e0b84e6486}
+\begin{DoxyVerb}    c
+    c  Bullen, Sec 10.2, eqn 7 / eqn 8
+    c
+    c    pt. 1 is unprimed, so this is technically the baz
+    c
+    c  Calculate baz this way to avoid quadrant problems
+    c
+\end{DoxyVerb}
+
+
+\begin{DoxyVerb}    c
+    c  Bullen, Sec 10.2, eqn 7 / eqn 8
+    c
+    c    pt. 2 is unprimed, so this is technically the az
+    c\end{DoxyVerb}
+ \hypertarget{classdistaz_1_1distaz_abe7e7f55263b7cfdd1658bad101a5ae3}{}\index{distaz\+::distaz@{distaz\+::distaz}!sph@{sph}}
+\index{sph@{sph}!distaz\+::distaz@{distaz\+::distaz}}
+\subsubsection[{sph}]{\setlength{\rightskip}{0pt plus 5cm}float distaz.\+distaz.\+sph = 1.\+0\hspace{0.3cm}{\ttfamily [static]}}\label{classdistaz_1_1distaz_abe7e7f55263b7cfdd1658bad101a5ae3}
+\begin{DoxyVerb}    c
+    c scolat and ecolat are the geocentric colatitudes
+    c as defined by Richter (pg. 318)
+    c
+    c Earth Flattening of 1/298.257 take from Bott (pg. 3)
+    c
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+distaz.\+py\end{DoxyCompactItemize}
