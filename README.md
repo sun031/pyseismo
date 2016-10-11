@@ -1,1 +1,2 @@
 # pyseismo
+# swsrc
