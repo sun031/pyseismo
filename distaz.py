@@ -8,7 +8,7 @@ import math
 #  \param lon1 longitude of the frist point, e.g., epicenter
 #  \param lat2 latitude of the second point, e.g., station
 #  \param lon2 longitude of the second point, e.g., station
-class distaz:
+class DistAz:
     """c
     c Subroutine to calculate the Great Circle Arc distance
     c    between two sets of geographic coordinates
@@ -51,32 +51,32 @@ class distaz:
         self.evtlat = lat2
         self.evtlon = lon2
         if (lat1 == lat2) and (lon1 == lon2):
-            self.delta = 0.0
+	    self.delta = 0.0
             self.az = 0.0
             self.baz = 0.0
             return
         
         rad=2.*math.pi/360.0
-"""
-c
-c scolat and ecolat are the geocentric colatitudes
-c as defined by Richter (pg. 318)
-c
-c Earth Flattening of 1/298.257 take from Bott (pg. 3)
-c
-"""
-        sph = 1.0/298.257
-        
+        """
+	c
+	c scolat and ecolat are the geocentric colatitudes
+	c as defined by Richter (pg. 318)
+	c
+	c Earth Flattening of 1/298.257 take from Bott (pg. 3)
+	c
+        """
+        sph=1.0/298.257
+
         scolat=math.pi/2.0 - math.atan((1.-sph)*(1.-sph)*math.tan(lat1*rad))
         ecolat=math.pi/2.0 - math.atan((1.-sph)*(1.-sph)*math.tan(lat2*rad))
         slon=lon1*rad
         elon=lon2*rad
-"""
-c
-c  a - e are as defined by Bullen (pg. 154, Sec 10.2)
-c     These are defined for the pt. 1
-c
-"""
+        """
+	c
+	c  a - e are as defined by Bullen (pg. 154, Sec 10.2)
+	c     These are defined for the pt. 1
+	c
+        """
         a=math.sin(scolat)*math.cos(slon)
         b=math.sin(scolat)*math.sin(slon)
         c=math.cos(scolat)
@@ -85,11 +85,11 @@ c
         g=-c*e
         h=c*d
         k=-math.sin(scolat)
-"""
-c
-c  aa - ee are the same as a - e, except for pt. 2
-c
-"""
+        """
+	c
+	c  aa - ee are the same as a - e, except for pt. 2
+	c
+        """
         aa=math.sin(ecolat)*math.cos(elon)
         bb=math.sin(ecolat)*math.sin(elon)
         cc=math.cos(ecolat)
@@ -98,22 +98,22 @@ c
         gg=-cc*ee
         hh=cc*dd
         kk=-math.sin(ecolat)
-"""
-c
-c  Bullen, Sec 10.2, eqn. 4
-c
-"""
+        """
+	c
+	c  Bullen, Sec 10.2, eqn. 4
+	c
+        """
         delrad=math.acos(a*aa + b*bb + c*cc)
         self.delta=delrad/rad
-"""
-c
-c  Bullen, Sec 10.2, eqn 7 / eqn 8
-c
-c    pt. 1 is unprimed, so this is technically the baz
-c
-c  Calculate baz this way to avoid quadrant problems
-c
-"""
+        """
+	c
+	c  Bullen, Sec 10.2, eqn 7 / eqn 8
+	c
+	c    pt. 1 is unprimed, so this is technically the baz
+	c
+	c  Calculate baz this way to avoid quadrant problems
+	c
+        """
         rhs1=(aa-d)*(aa-d)+(bb-e)*(bb-e)+cc*cc - 2.
         rhs2=(aa-g)*(aa-g)+(bb-h)*(bb-h)+(cc-k)*(cc-k) - 2.
         dbaz=math.atan2(rhs1,rhs2)
@@ -121,7 +121,7 @@ c
             dbaz=dbaz+2*math.pi
         
         self.baz=dbaz/rad
-    """
+        """
 	c
 	c  Bullen, Sec 10.2, eqn 7 / eqn 8
 	c
@@ -132,40 +132,40 @@ c
         rhs2=(a-gg)*(a-gg)+(b-hh)*(b-hh)+(c-kk)*(c-kk) - 2.
         daz=math.atan2(rhs1,rhs2)
         if daz<0.0:
-	       daz=daz+2*math.pi
+	    daz=daz+2*math.pi
         
         self.az=daz/rad
-    """
+        """
 	c
 	c   Make sure 0.0 is always 0.0, not 360.
 	c
 	"""
         if (abs(self.baz-360.) < .00001):
-	        self.baz=0.0
+	    self.baz=0.0
         if (abs(self.az-360.) < .00001):
-	        self.az=0.0
-    
-    ## get distance in km
+	    self.az=0.0
+
+    ## get distance in degree
     def getDelta(self):
-	    return self.delta
-    
+	return self.delta
+
     ## get azimuth
     def getAz(self):
-	    return self.az
+	return self.az
 
     ## get back-azimuth
     def getBaz(self):
-	    return self.baz
+	return self.baz
 
     ## convert deg to km
     def degreesToKilometers(self, degrees):
-        return degrees * 111.195
+        return degrees * 111.19
     
     ## convert km to deg
     #  \param kilometers distance in km
     #  \param return distance in deg
     def kilometersToDegrees(self, kilometers):
-        return kilometers / 111.195
+        return kilometers / 111.19
 
 #distaz = DistAz(0, 0, 1,1)
 #print "%f  %f  %f" % (distaz.getDelta(), distaz.getAz(), distaz.getBaz())

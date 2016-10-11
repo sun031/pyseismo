@@ -45,7 +45,7 @@ class Gmt:
         """
         execute the generated shell script
         """
-        out = commands.getoutput(self.scr)
+        out = commands.getoutput("sh "+self.scr)
         if out.strip()!="":
             print out
     

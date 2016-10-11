@@ -8,7 +8,9 @@ import os
 from obspy.core import UTCDateTime
 import commands
 from obspy.taup.tau import TauPyModel
-from obspy.iris.client import Client
+# from obspy.iris.client import Client
+from obspy.clients.iris.client import Client
+
 from obspy.taup import getTravelTimes
 import DistAz
 import simplekml
@@ -265,7 +267,7 @@ class Oat:
     
     ## calculation of P first arrival
     #  \param phase_list a list containing possible P first arrival    
-    def ttak135pf(self, phase_list=['P','Pn','Pg', 'Pb','p']):    # travel time of first P arrivals with AK135 model
+    def ttak135pf(self, phase_list=['P','Pn','Pg','p']):    # travel time of first P arrivals with AK135 model
         model = TauPyModel(model="ak135")
         
         if self.evdp>0 and self.evdp<1.4:
@@ -278,7 +280,7 @@ class Oat:
 
     ## calculation of S first arrival
     #  \param phase_list a list containing possible S first arrival    
-    def ttak135sf(self, phase_list=['S','Sn','Sg', 'Sb','s']):    # travel time of first S arrivals with AK135 model
+    def ttak135sf(self, phase_list=['S','Sn','Sg','s']):    # travel time of first S arrivals with AK135 model
         model = TauPyModel(model="ak135")
         
         if self.evdp>0 and self.evdp<1.4:
@@ -378,7 +380,7 @@ def staoat(oatfile, stafile):
     lst = fp.readlines()
     fp.close()
     
-    fp = open(evtfile,'w')
+    fp = open(stafile,'w')
     evtlst = []
     for line in lst:
         row=line.split()
@@ -522,10 +524,40 @@ def oat2kml(oatfile, kmlfile):
         pnt.style.iconstyle.icon.href = 'http://maps.google.com/mapfiles/kml/pal3/icon23.png'
         pnt.coords = [(stlo, stla)]
     #     pnt.lookat.tilt = 0
-    
-    
-        
+            
     kml.save(kmlfile)
+
+## station file to kml
+def sta2kml(stafile, kmlfile):
+    with open(stafile, 'r') as fp:
+        lst = fp.readlines()
+
+    kml = simplekml.Kml(open=1) # the folder will be open in the table of contents
+        
+    netold = ""
+    for line in lst:
+        row = line.split()
+        net = row[0]
+        sta = row[1]
+        stla = float(row[2])
+        stlo = float(row[3])
+        stel = float(row[4])
+        
+        if net!=netold:
+            folsta = kml.newfolder(name=net)
+            netold = net
+            
+        pnt = folsta.newpoint()
+        pnt.name = net+"."+sta
+        pnt.description = "Sta:%s\nLat:%12.4f\nLon:%12.4f\nEle:%8.3f[m]" % (pnt.name, stla, stlo, stel)
+        pnt.style.iconstyle.scale = 2  # Icon thrice as big
+        pnt.style.iconstyle.icon.href = 'http://maps.google.com/mapfiles/kml/pal3/icon23.png'
+        pnt.coords = [(stlo, stla)]
+    kml.save(kmlfile)
+       
+    
+
+
     
 ## convert ISC arrival to oat file
 #  \param infile ISC arrival file
@@ -534,10 +566,10 @@ def oat2kml(oatfile, kmlfile):
 #  \param tt bool, calculate travel time based on the ak135 model or not, defulat False
 def isc2oat(infile, oatfile, distaz=False, tt=False):
     
-    with open(infile, 'r') as fp:
+    with open(infile, "r") as fp:
         lst = fp.readlines()
     
-    fp = open(oatfile, 'w')
+    fp = open(oatfile, "w")
     oat = Oat()
     
     for line in lst:
